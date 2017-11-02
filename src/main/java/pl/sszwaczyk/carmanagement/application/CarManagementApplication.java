@@ -1,4 +1,4 @@
-package pl.sszwaczyk.carmanagement;
+package pl.sszwaczyk.carmanagement.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
