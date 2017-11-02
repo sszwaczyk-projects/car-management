@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<label>Success!</label>
+<div th:object="${user}">
+    <label th:text="*{firstName}"></label>
+    <label th:text="*{lastName}"></label>
+</div>
+</body>
+</html>

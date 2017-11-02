@@ -25,6 +25,14 @@ public class User {
     @Column(name = "role")
     private String role;
 
+    @Column(name = "enabled")
+    private boolean enabled;
+
+    public User() {
+        super();
+        this.enabled = false;
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -71,5 +79,13 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
     }
 }
