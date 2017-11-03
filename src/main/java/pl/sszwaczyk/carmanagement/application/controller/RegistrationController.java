@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
+import pl.sszwaczyk.carmanagement.application.config.url.RegistrationURLs;
 import pl.sszwaczyk.carmanagement.application.domain.entities.User;
 import pl.sszwaczyk.carmanagement.application.domain.entities.VerificationToken;
 import pl.sszwaczyk.carmanagement.application.domain.entities.dto.UserDTO;
@@ -37,14 +38,14 @@ public class RegistrationController {
     private UserService userService;
 
 
-    @RequestMapping(value = "/registration/registration", method = RequestMethod.GET)
+    @RequestMapping(value = RegistrationURLs.registartionForm, method = RequestMethod.GET)
     public String showRegistrationForm(WebRequest request, Model model) {
         UserDTO UserDTO = new UserDTO();
         model.addAttribute("user", UserDTO);
-        return "registration/registration";
+        return RegistrationURLs.registartionForm;
     }
 
-    @RequestMapping(value = "/registration/register", method = RequestMethod.POST)
+    @RequestMapping(value = RegistrationURLs.registrationFormSubmit, method = RequestMethod.POST)
     public ModelAndView registerUserAccount(
             @ModelAttribute("user") @Valid UserDTO accountDto,
             BindingResult result, WebRequest request, Errors errors) {
@@ -66,11 +67,11 @@ public class RegistrationController {
             return new ModelAndView("emailError", "user", accountDto);
         }
 
-        return new ModelAndView("registration/registerSuccess", "user", accountDto);
+        return new ModelAndView(RegistrationURLs.registrationSuccess, "user", accountDto);
 
     }
 
-    @RequestMapping(value = "/registrationConfirm", method = RequestMethod.GET)
+    @RequestMapping(value = RegistrationURLs.registrationConfirm, method = RequestMethod.GET)
     public String confirmRegistration
             (WebRequest request, Model model, @RequestParam("token") String token) {
 
