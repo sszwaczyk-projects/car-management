@@ -37,14 +37,14 @@ public class RegistrationController {
     private UserService userService;
 
 
-    @RequestMapping(value = "/user/registration", method = RequestMethod.GET)
+    @RequestMapping(value = "/registration/registration", method = RequestMethod.GET)
     public String showRegistrationForm(WebRequest request, Model model) {
         UserDTO UserDTO = new UserDTO();
         model.addAttribute("user", UserDTO);
-        return "user/registration";
+        return "registration/registration";
     }
 
-    @RequestMapping(value = "/user/register", method = RequestMethod.POST)
+    @RequestMapping(value = "/registration/register", method = RequestMethod.POST)
     public ModelAndView registerUserAccount(
             @ModelAttribute("user") @Valid UserDTO accountDto,
             BindingResult result, WebRequest request, Errors errors) {
@@ -66,7 +66,7 @@ public class RegistrationController {
             return new ModelAndView("emailError", "user", accountDto);
         }
 
-        return new ModelAndView("user/registerSuccess", "user", accountDto);
+        return new ModelAndView("registration/registerSuccess", "user", accountDto);
 
     }
 
@@ -86,7 +86,7 @@ public class RegistrationController {
         User user = verificationToken.getUser();
         Calendar cal = Calendar.getInstance();
         if ((verificationToken.getExpiryDate().getTime() - cal.getTime().getTime()) <= 0) {
-            String messageValue = messages.getMessage("auth.message.expired", null, locale;
+            String messageValue = messages.getMessage("auth.message.expired", null, locale);
             model.addAttribute("message", messageValue);
             return "redirect:/badUser.html?lang=" + locale.getLanguage();
         }
