@@ -2,9 +2,9 @@ package pl.sszwaczyk.carmanagement.application.config.url;
 
 public interface RegistrationURLs {
 
-    String registartionForm = "registration/registration";
-    String registrationFormSubmit = "registration/register";
-    String registrationSuccess = "registration/registerSuccess";
-    String registrationConfirm = "registration/confirm";
+    String REGISTRATION_FORM = "registration/registration";
+    String REGISTRATION_FORM_SUBMIT = "registration/register";
+    String REGISTRATION_SUCCESS = "registration/registerSuccess";
+    String REGISTRATION_CONFIRM = "registration/confirm";
 
 }

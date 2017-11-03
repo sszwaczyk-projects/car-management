@@ -7,7 +7,7 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Component;
 import pl.sszwaczyk.carmanagement.application.config.url.RegistrationURLs;
-import pl.sszwaczyk.carmanagement.application.config.url.Server;
+import pl.sszwaczyk.carmanagement.application.config.url.ServerURLs;
 import pl.sszwaczyk.carmanagement.application.domain.entities.User;
 import pl.sszwaczyk.carmanagement.application.domain.service.IUserService;
 import pl.sszwaczyk.carmanagement.application.event.OnRegistrationCompleteEvent;
@@ -39,14 +39,14 @@ public class RegistrationListener implements ApplicationListener<OnRegistrationC
         String recipientAddress = user.getEmail();
         String subject = "Registration Confirmation";
         String confirmationUrl
-                = event.getAppUrl() + RegistrationURLs.registrationConfirm + "?token=" + token;
+                = event.getAppUrl() + RegistrationURLs.REGISTRATION_CONFIRM + "?token=" + token;
 //        String message = messages.getMessage("message.regSuccess", null, event.getLocale());
         String message = "Registration Success!";
 
         SimpleMailMessage email = new SimpleMailMessage();
         email.setTo(recipientAddress);
         email.setSubject(subject);
-        email.setText(message + "\r\n" + Server.developServerURL + confirmationUrl);
+        email.setText(message + "\r\n" + ServerURLs.DEVELOP_SERVER_URL + confirmationUrl);
         mailSender.send(email);
     }
 }

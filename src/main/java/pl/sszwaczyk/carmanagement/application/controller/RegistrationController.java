@@ -38,14 +38,14 @@ public class RegistrationController {
     private UserService userService;
 
 
-    @RequestMapping(value = RegistrationURLs.registartionForm, method = RequestMethod.GET)
+    @RequestMapping(value = RegistrationURLs.REGISTRATION_FORM, method = RequestMethod.GET)
     public String showRegistrationForm(WebRequest request, Model model) {
         UserDTO UserDTO = new UserDTO();
         model.addAttribute("user", UserDTO);
-        return RegistrationURLs.registartionForm;
+        return RegistrationURLs.REGISTRATION_FORM;
     }
 
-    @RequestMapping(value = RegistrationURLs.registrationFormSubmit, method = RequestMethod.POST)
+    @RequestMapping(value = RegistrationURLs.REGISTRATION_FORM_SUBMIT, method = RequestMethod.POST)
     public ModelAndView registerUserAccount(
             @ModelAttribute("user") @Valid UserDTO accountDto,
             BindingResult result, WebRequest request, Errors errors) {
@@ -67,11 +67,11 @@ public class RegistrationController {
             return new ModelAndView("emailError", "user", accountDto);
         }
 
-        return new ModelAndView(RegistrationURLs.registrationSuccess, "user", accountDto);
+        return new ModelAndView(RegistrationURLs.REGISTRATION_SUCCESS, "user", accountDto);
 
     }
 
-    @RequestMapping(value = RegistrationURLs.registrationConfirm, method = RequestMethod.GET)
+    @RequestMapping(value = RegistrationURLs.REGISTRATION_CONFIRM, method = RequestMethod.GET)
     public String confirmRegistration
             (WebRequest request, Model model, @RequestParam("token") String token) {
 

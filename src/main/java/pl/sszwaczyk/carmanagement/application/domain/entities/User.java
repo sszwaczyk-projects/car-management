@@ -19,7 +19,7 @@ public class User {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "password")
+    @Column(name = "label.login.password")
     private String password;
 
     @Column(name = "role")
