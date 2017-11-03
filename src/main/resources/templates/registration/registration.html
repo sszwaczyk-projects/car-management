@@ -1,38 +1,83 @@
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<body>
-<h1 th:text="#{label.form.title}">form</h1>
-<form action="/registration/register" th:object="${user}" method="POST" enctype="utf8">
-    <div>
-        <label th:text="#{label.user.firstName}">first</label>
-        <input th:field="*{firstName}"/>
-        <p th:each="error: ${#fields.errors('firstName')}"
-           th:text="${error}">Validation error</p>
-    </div>
-    <div>
-        <label th:text="#{label.user.lastName}">last</label>
-        <input th:field="*{lastName}"/>
-        <p th:each="error : ${#fields.errors('lastName')}"
-           th:text="${error}">Validation error</p>
-    </div>
-    <div>
-        <label th:text="#{label.user.email}">email</label>
-        <input type="email" th:field="*{email}"/>
-        <p th:each="error : ${#fields.errors('email')}"
-           th:text="${error}">Validation error</p>
-    </div>
-    <div>
-        <label th:text="#{label.user.password}">password</label>
-        <input type="password" th:field="*{password}"/>
-        <p th:each="error : ${#fields.errors('password')}"
-           th:text="${error}">Validation error</p>
-    </div>
-    <div>
-        <label th:text="#{label.user.confirmPass}">confirm</label>
-        <input type="password" th:field="*{matchingPassword}"/>
-    </div>
-    <button type="submit" th:text="#{label.form.submit}">submit</button>
-</form>
+<head>
 
-<a th:href="@{/login.html}" th:text="#{label.form.loginLink}">login</a>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+
+  <title>CoreUI Bootstrap 4 Admin Template</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" type="text/css" th:href="@{css/font-awesome.min.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{css/simple-line-icons.css}" />
+
+  <!-- Main styles for this application -->
+  <link rel="stylesheet" type="text/css" th:href="@{css/style.min.css}" />
+
+  <!-- Styles required by this views -->
+
+</head>
+
+<body class="app flex-row align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card mx-4">
+          <div class="card-body p-4">
+            <h1 th:text="#{registration.register}">Register</h1>
+            <p th:text="#{registration.create_account}" class="text-muted">Create your account</p>
+            <div class="input-group mb-3">
+              <span class="input-group-addon"><i class="icon-user"></i></span>
+              <input type="text" class="form-control" placeholder="Username">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-addon"><i class="icon-user"></i></span>
+              <input type="text" class="form-control" placeholder="Username">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-addon">@</span>
+              <input type="text" class="form-control" placeholder="Email">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-addon"><i class="icon-lock"></i></span>
+              <input type="password" class="form-control" placeholder="Password">
+            </div>
+
+            <div class="input-group mb-4">
+              <span class="input-group-addon"><i class="icon-lock"></i></span>
+              <input type="password" class="form-control" placeholder="Repeat password">
+            </div>
+
+            <button type="button" class="btn btn-block btn-success">Create Account</button>
+          </div>
+          <div class="card-footer p-4">
+            <div class="row">
+              <div class="col-6">
+                <button class="btn btn-block btn-facebook" type="button">
+                  <span>facebook</span>
+                </button>
+              </div>
+              <div class="col-6">
+                <button class="btn btn-block btn-twitter" type="button">
+                  <span>twitter</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap and necessary plugins -->
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

@@ -1,26 +1,72 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Title</title>
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <!-- <link rel="shortcut icon" href="assets/ico/favicon.png"> -->
+
+  <title>CAR-MANAGEMENT</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" type="text/css" th:href="@{css/font-awesome.min.css}" />
+  <link rel="stylesheet" type="text/css" th:href="@{css/simple-line-icons.css}" />
+
+  <!-- Main styles for this application -->
+  <link rel="stylesheet" type="text/css" th:href="@{css/style.min.css}" />
+
+  <!-- Styles required by this views -->
+
 </head>
-<body>
-<form name="f" th:action="@{/login}" method="post">
-    <fieldset>
-        <legend>Please Login</legend>
-        <div th:if="${param.error}" class="alert alert-error">
-            Invalid username and password.
+
+<body class="app flex-row align-items-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card-group mb-0">
+          <div class="card p-4">
+            <div class="card-body">
+              <form name="f" th:action="@{/login}" method="post">
+                <h1 th:text="#{login.login}">Login</h1>
+                <p class="text-muted" th:text="#{login.p.signin}">Sign In to your account</p>
+                <div class="input-group mb-3">
+                  <span class="input-group-addon"><i class="icon-user"></i></span>
+                  <input type="text" id="username" name="username" class="form-control" th:class="${param.error} ? is-invalid" placeholder="Username" th:placeholder="#{login.username}"/>
+                </div>
+                <div class="input-group mb-4">
+                  <span class="input-group-addon"><i class="icon-lock"></i></span>
+                  <input type="password" id="password" name="password" class="form-control" th:class="${param.error} ? is-invalid" placeholder="Password" th:placeholder="#{login.password}"/>
+                </div>
+                <div class="row">
+                  <div class="col-6">
+                    <button type="submit" class="btn btn-primary px-4" th:text="#{login.login}">Login</button>
+                  </div>
+                  <div class="col-6 text-right">
+                    <button type="button" class="btn btn-link px-0" th:text="#{login.forgot_password}">Forgot password?</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="card text-white bg-primary py-5 d-md-down-none" style="width:44%">
+            <div class="card-body text-center">
+              <div>
+                <h2 th:text="#{registration.sign_up}">Sign up</h2>
+                <p th:text="#{login.register_text}">Register to CAR-MANAGEMENT system!</p>
+                <a type="button" th:href="@{/registration/registration}" class="btn btn-primary active mt-3" th:text="#{registration.register_now}">Register Now!</a>
+              </div>
+            </div>
+          </div>
         </div>
-        <div th:if="${param.logout}" class="alert alert-success">
-            You have been logged out.
-        </div>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username"/>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password"/>
-        <div class="form-actions">
-            <button type="submit" class="btn">Log in</button>
-        </div>
-    </fieldset>
-</form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap and necessary plugins -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/esm/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -1,10 +1,9 @@
-package pl.sszwaczyk.carmanagement.application.config.locale;
+package pl.sszwaczyk.carmanagement.application.config.mvc;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -14,7 +13,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import java.util.Locale;
 
 @Configuration
-@EnableWebMvc
+//@EnableWebMvc
 public class MVCConfig extends WebMvcConfigurerAdapter {
 
     @Override
